@@ -5,3 +5,6 @@ Challenge 1:
 
 Challenge 2: 
 Given that your pet store allows auctions on multiple pets under the Generalized second-price auction mechanism you are required to: - Develop a small script to calculate the amount to be paid by the winner and the losing bidders
+
+##NOTE
+There is a readme inside each challenge folder. Kindly note that each challenge ##MUST BE RUN from its corresponding folder
