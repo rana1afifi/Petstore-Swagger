@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Application to bid on pets in petstore",
+    "version": "1.0.0",
+    "title": "Bids-Application",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Bids",
+      "description": "An API for bidding on pets in a petstore"
+    }
+  ],
+  "paths": {
+    "/request": {
+      "get": {
+        "tags": [
+          "Bids"
+        ],
+        "summary": "Returns all bids",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bid"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bids"
+        ],
+        "summary": "Bid on a specific pet from a specific user",
+        "requestBody": {
+          "description": "Users can bid on a specific pet, a specific amount of money",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bid"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bid"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    }
+  },
+    "components": {
+      "schemas": {
+        "bid": {
+          "type": "object",
+          "properties": {
+             "petID": {
+              "type": "integer",
+              "format": "number"
+            },
+            "userID": {
+              "type": "integer",
+              "format": "number"
+            },
+            "money": {
+              "type": "integer",
+              "format": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+
